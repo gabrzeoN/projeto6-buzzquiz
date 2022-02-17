@@ -1,31 +1,44 @@
-*{
+:root {
+    --background-color: #FAFAFA;
+    --primary-color: #EC362D;
+    --black-color: #000000;
+    --white-color: #FFFFFF;
+    --gradiente-black: linear-gradient(to bottom, #00000000 0%, #00000000 40%, #000000a1 100%);
+}
+
+* {
     box-sizing: border-box;
 }
 
-body{
-    background-color: #FAFAFA;
+body {
+    background-color: var(--background);
     font-family: 'Roboto', sans-serif;
 }
 
-header{
+h3 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+header {
     position: fixed;
     left: 0;
-    right: 0;
     top: 0;
-    z-index: 1;
-    background-color: #EC362D;
+    right: 0;
+    background-color: var(--primary-color);
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     height: 69px;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 3;
 }
 
-header h1{
+header h1 {
     font-weight: bold;
     font-size: 37px;
     line-height: 43px;
-    color: #FFFFFF;
+    color: var(--white-color);
 }
 
 main:nth-child(2){
@@ -45,6 +58,26 @@ main:nth-child(2){
     height: 142px;
     position: relative;
     display: flex;
+    color: var(--white-color);;
+}
+
+.tela1 {
+    padding: 100px 18px 18px 18px;
+    width: 375px;
+    margin: 0 auto;
+}
+
+.tela1 section {
+    margin-bottom: 35px;
+}
+
+.seus-quizzes-vazio {
+    height: 181px;
+    width: 100%;
+    border: 2px dashed #D5D5D5;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
@@ -53,7 +86,7 @@ main:nth-child(2){
 }
 
 .tela2 .banner h2{
-    color: #FFFFFF;
+    color: var(--white-color);
     font-size: 19px;
     line-height: 22px;
     position: absolute;
@@ -65,7 +98,7 @@ main:nth-child(2){
 .tela2 .perguntas ul li{
     padding: 18px;
     margin-top: 28px;
-    background-color: white;
+    background-color: var(--white-color);
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
 }
 
@@ -115,6 +148,104 @@ main:nth-child(2){
 }
 
 .escondido{
+    display: none;
+}
+
+.seus-quizzes-vazio span {
+    width: 250px;
+    color: #B9B9B9;
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.seus-quizzes-vazio button {
+    height: 40px;
+    width: 151px;
+    font-size: 21px;
+    text-align: center;
+    color: var(--background-color);
+    border: 2px dashed var(--background-color);
+    border-radius: 50px;
+    background-color: #FAFAFA;
+}
+
+.seus-quizzes-preenchido {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.tela1 .topo-secao {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.seus-quizzes-preenchido ion-icon {
+    color: var(--background-color);
+    font-size: 40px;
+}
+
+.todos-quizzes {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+}
+
+.lista-quizzes {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+}
+
+.quizz {
+    position: relative;
+    width: 340px;
+    height: 181px;
+    margin-bottom: 15px;
+}
+
+.quizz img {
+    height: 100%;
+    width: 100%;
+}
+
+.quizz span {
+    height: 54px;
+    width: 100%;
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0 20px;
+    left: 0;
+    bottom: 5px;
+    font-size: 19px;
+    line-height: 22px;
+    color: var(--white-color);
+    z-index: 2;
+}
+
+.quizz .gradiente-escurecer {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    background-image: var(--gradiente-black);
+}
+
+.esconder {
     display: none;
 }
 
