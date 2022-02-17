@@ -8,6 +8,11 @@ body{
 }
 
 header{
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    z-index: 1;
     background-color: #EC362D;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     height: 69px;
@@ -22,3 +27,100 @@ header h1{
     line-height: 43px;
     color: #FFFFFF;
 }
+
+main:nth-child(2){
+    display: flex;
+    justify-content: center;
+}
+
+.tela2{
+    width: 375px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 69px;
+}
+
+.tela2 .banner{
+    height: 142px;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tela2 .banner img{
+}
+
+.tela2 .banner h2{
+    color: #FFFFFF;
+    font-size: 19px;
+    line-height: 22px;
+    position: absolute;
+}
+
+.tela2 .perguntas{
+}
+
+.tela2 .perguntas ul li{
+    padding: 18px;
+    margin-top: 28px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
+}
+
+.tela2 .perguntas ul li .texto{
+    background-color: #434CA0;
+    color: #FFFFFF;
+    height: 89px;
+    font-weight: bold;
+    font-size: 19px;
+    line-height: 22px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.tela2 .perguntas .opcoes-cima{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 13px;
+}
+
+.tela2 .perguntas .opcoes-baixo{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 13px;
+}
+
+.opcao1{
+    /* background-color: green; */
+}
+
+.opcao2{
+    /* background-color: blue; */
+}
+
+.tela2 .perguntas .opcoes img{
+    width: 163px;
+    height: 113px;
+}
+
+.tela2 .perguntas .opcoes p{
+    margin-top: 2px;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 15px;
+    color: #000000;
+}
+
+.escondido{
+    display: none;
+}
+
+/*JQuery para desktop 
+.tela2 .banner .img{
+    height: 227px;
+    width: 1440px;
+}
+*/
