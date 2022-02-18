@@ -20,10 +20,10 @@
     </header>
     <main>
         <!-- TELA 1 -->
-        <div class="tela1">
-            <div class="scroll-view"></div>
 
+        <div class="tela1 escondido">
             <section class="seus-quizzes-vazio escondido">
+                <div class="scroll-view"></div>
                 <span>Você não criou nenhum quizz ainda :(</span>
                 <button onclick="botaoCriarQuizz()">Criar Quizz</button>
             </section>
@@ -81,21 +81,22 @@
                         </div>
                         <div class="opcoes">
                             <div class="opcoes-cima">
-                                <div class="opcao1">
+                                <div class="opcao" onclick="selecionarOpcao(this)">
+                                    <!-- opcao-nao-selecionada -->
                                     <img src="/app/images/selecionar_gato.png" alt="">
-                                    <p>Gatíneo 1</p>
+                                    <p class="resposta-errada">Gatíneo 1</p>
                                 </div>
-                                <div class="opcao2">
+                                <div class="opcao" onclick="selecionarOpcao(this)">
                                     <img src="/app/images/selecionar_gato.png" alt="">
-                                    <p>Gatíneo 2</p>
+                                    <p class="resposta-correta">Gatíneo 2</p>
                                 </div>
                             </div>
                             <div class="opcoes-baixo">
-                                <div class="opcao3">
+                                <div class="opcao" onclick="selecionarOpcao(this)">
                                     <img src="/app/images/selecionar_gato.png" alt="">
                                     <p>Gatíneo 3</p>
                                 </div>
-                                <div class="opcao4">
+                                <div class="opcao" onclick="selecionarOpcao(this)">
                                     <img src="/app/images/selecionar_gato.png" alt="">
                                     <p>Gatíneo 4</p>
                                 </div>
@@ -109,21 +110,22 @@
                         </div>
                         <div class="opcoes">
                             <div class="opcoes-cima">
-                                <div class="opcao1">
+                                <div class="opcao" onclick="selecionarOpcao(this)">
+                                    <!-- opcao-nao-selecionada -->
                                     <img src="/app/images/selecionar_gato.png" alt="">
-                                    <p>Gatíneo 1</p>
+                                    <p class="resposta-errada">Gatíneo 1</p>
                                 </div>
-                                <div class="opcao2">
+                                <div class="opcao" onclick="selecionarOpcao(this)">
                                     <img src="/app/images/selecionar_gato.png" alt="">
-                                    <p>Gatíneo 2</p>
+                                    <p class="resposta-correta">Gatíneo 2</p>
                                 </div>
                             </div>
                             <div class="opcoes-baixo">
-                                <div class="opcao3">
+                                <div class="opcao" onclick="selecionarOpcao(this)">
                                     <img src="/app/images/selecionar_gato.png" alt="">
                                     <p>Gatíneo 3</p>
                                 </div>
-                                <div class="opcao4">
+                                <div class="opcao" onclick="selecionarOpcao(this)">
                                     <img src="/app/images/selecionar_gato.png" alt="">
                                     <p>Gatíneo 4</p>
                                 </div>
@@ -252,6 +254,7 @@
     </main>
 
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./app/js/script.js"></script>
 </body>
 
