@@ -92,6 +92,8 @@ main:nth-child(2){
 }
 
 .tela2 .banner img{
+    width: 375px;
+    height: 142px;
 }
 
 .tela2 .banner h2{
@@ -120,7 +122,8 @@ main:nth-child(2){
     line-height: 22px;
     display: flex;
     align-items: center;
-    text-align: center;
+    justify-content: center;
+    /* text-align: center; */
 }
 
 .tela2 .perguntas .opcoes-cima{
@@ -286,6 +289,15 @@ main:nth-child(2){
 }
 
 .tela2 .banner img{
+    
+}
+
+.tela2 .banner .camada-preta{
+    background-color: rgba(0, 0, 0, 0.6);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
 }
 
 .tela2 .banner h2{
@@ -293,6 +305,7 @@ main:nth-child(2){
     font-size: 19px;
     line-height: 22px;
     position: absolute;
+    z-index: 2;
 }
 
 .tela2 .perguntas{
@@ -317,7 +330,19 @@ main:nth-child(2){
     text-align: center;
 }
 
-.tela2 .perguntas .opcoes-cima{
+.tela2 .perguntas .opcoes{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+.tela2 .perguntas .opcao{
+    margin-top: 13px;
+}
+
+/* .tela2 .perguntas .opcoes-cima{
     display: flex;
     justify-content: space-between;
     margin-top: 13px;
@@ -327,7 +352,7 @@ main:nth-child(2){
     display: flex;
     justify-content: space-between;
     margin-top: 13px;
-}
+} */
 
 .tela2 .perguntas .opcoes img{
     width: 163px;
