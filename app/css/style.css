@@ -126,18 +126,6 @@ main:nth-child(2){
     /* text-align: center; */
 }
 
-.tela2 .perguntas .opcoes-cima{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 13px;
-}
-
-.tela2 .perguntas .opcoes-baixo{
-    display: flex;
-    justify-content: space-between;
-    margin-top: 13px;
-}
-
 .opcao1{
     /* background-color: green; */
 }
@@ -156,7 +144,6 @@ main:nth-child(2){
     font-weight: bold;
     font-size: 13px;
     line-height: 15px;
-    color: #000000;
 }
 
 .seus-quizzes-vazio span {
@@ -371,11 +358,13 @@ main:nth-child(2){
 }
 
 .resposta-correta{
-    color: var(--correct-answer);
+    /* color: var(--correct-answer); */
+    /* color: #009C22; */
 }
 
-.resposta-errada{
-    color: var(--wrong-answer);
+.resposta-incorreta{
+    /* color: var(--wrong-answer); */
+    /* color: #FF0B0B; */
 }
 
 /*JQuery para desktop 

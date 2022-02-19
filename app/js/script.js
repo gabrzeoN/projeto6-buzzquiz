@@ -5,6 +5,11 @@ const OBTER_UNICO_QUIZZ = "https://mock-api.driven.com.br/api/v4/buzzquizz/quizz
 const APAGAR_QUIZZ = OBTER_UNICO_QUIZZ;                                                 //DELETE
 const EDITAR_QUIZZ = OBTER_UNICO_QUIZZ;                                                 //PUT
 
+//#### Variáveis de controle tela 2
+let quantidadePerguntas = null;
+let nivel = null;
+
+
 chamarUmQuizz("4368");
 
 //#### FUNÇÕES
@@ -60,11 +65,7 @@ function comparador() {
 function chamarUmQuizz(id) {
     const promisse = axios.get("https://mock-api.driven.com.br/api/v4/buzzquizz/quizzes/" + id);
     promisse.then(renderizarUmQuizz);
-    // promisse.then((response) => {
-    //     console.log(response.data);
-
-    // });
-    // promisse.catch();
+    promisse.catch((error) => console.log("Erro ao renderizar um quizz!" + error));
 }
 
 function renderizarUmQuizz(response) {
@@ -72,7 +73,10 @@ function renderizarUmQuizz(response) {
     const titulo = response.data.title;
     const banner = response.data.image;
     const perguntas = response.data.questions;
-    const niveis = response.data.levels
+    const niveis = response.data.levels;
+
+    quantidadePerguntas = perguntas.length;
+    // console.log(quantidadePerguntas);
 
     document.querySelector(".tela2 .banner h2").innerHTML = titulo;
     document.querySelector(".tela2 .banner img").setAttribute('src', banner);
@@ -91,10 +95,16 @@ function renderizarUmQuizz(response) {
             </li>
         `;
         respostas.forEach((resposta) => {
+            let corTextoResposta = null;
+            if(resposta.isCorrectAnswer){
+                corTextoResposta = "resposta-correta";
+            }else{
+                corTextoResposta = "resposta-incorreta";
+            }
             document.querySelector(".tela2 .perguntas ul li:last-child .opcoes").innerHTML += `
                 <div class="opcao" onclick="selecionarOpcao(this)">
-                    <img src="${resposta.image}" alt="Resposta 1">
-                    <p class="resposta-errada">${resposta.text}</p>
+                    <img src="${resposta.image}" alt="Opção de resposta">
+                    <p class="${corTextoResposta}">${resposta.text}</p>
                 </div>
             `;
         });
@@ -103,22 +113,26 @@ function renderizarUmQuizz(response) {
 }
 
 function selecionarOpcao(opcaoSelecionada) {
-    const caixaDaPergunta = opcaoSelecionada.parentNode.parentNode.parentNode;
+    const caixaDaPergunta = opcaoSelecionada.parentNode.parentNode;
     if (!caixaDaPergunta.classList.contains("respondido")) {
         caixaDaPergunta.classList.add("respondido")
         const opcoes = caixaDaPergunta.querySelectorAll(".opcao");
         opcoes.forEach((opcao) => {
             opcao.classList.add("opcao-nao-selecionada");
+            const textoOpcao = opcao.querySelector("p");
+            if(textoOpcao.classList.contains("resposta-correta")){
+                textoOpcao.setAttribute('style', `color: var(--correct-answer);`);
+            }else if(textoOpcao.classList.contains("resposta-incorreta")){
+                textoOpcao.setAttribute('style', `color: var(--wrong-answer);`);
+            }
         });
         opcaoSelecionada.classList.remove("opcao-nao-selecionada");
-        verificarResposta(opcaoSelecionada);
+        setTimeout(rolarParaBaixo, 1000);
     }
 }
 
-function verificarResposta(opcaoSelecionada) {
-    // if(){
-
-    // }
+function rolarParaBaixo(quantidadePerguntas) {
+    document.querySelector();
 }
 
 
