@@ -10,6 +10,9 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="app/css/reset.css">
     <link rel="stylesheet" href="app/css/style.css">
+    <link rel="stylesheet" href="app/css/tela1.css">
+    <link rel="stylesheet" href="app/css/tela2.css">
+    <link rel="stylesheet" href="app/css/tela3.css">
     <title>BuzzQuizz</title>
 </head>
 
@@ -22,13 +25,13 @@
         <!-- TELA 1 -->
 
         <div class="tela1 escondido">
-            <section class="seus-quizzes-vazio escondido">
-                <div class="scroll-view"></div>
+            <div class="scroll-view"></div>
+            <section class="seus-quizzes-vazio">
                 <span>Você não criou nenhum quizz ainda :(</span>
                 <button onclick="botaoCriarQuizz()">Criar Quizz</button>
             </section>
 
-            <section class="seus-quizzes-preenchido">
+            <section class="seus-quizzes-preenchido escondido">
                 <div class="topo">
                     <h3>Seus Quizzes</h3>
                     <ion-icon name="add-circle-sharp" onclick="botaoCriarQuizz()"></ion-icon>
@@ -68,7 +71,7 @@
 
         <!-- TELA 2 -->
         <div class="tela2 ">
-            <!-- <div class="scroll-view"></div> -->
+            <div class="scroll-view"></div>
             <section class="banner">
                 <img src="" alt="Banner do quizz"> <!-- app/images/banner2.png -->
                 <h2></h2> <!-- O quão Potterhead é você? -->
@@ -76,7 +79,7 @@
             </section>
             <section class="perguntas">
                 <ul>
-                    
+
                 </ul>
             </section>
         </div>
@@ -85,14 +88,15 @@
         <div class="tela3 escondido">
 
             <!-- TELA 3.1 -->
-            <section class="tela3_1">
+            <section class="tela3_1 escondido">
                 <div class="scroll-view"></div>
                 <h3>Comece pelo começo</h3>
                 <article>
-                    <input class="entrada" type="text" placeholder="Título do seu quizz">
-                    <input class="entrada" type="text" placeholder="URL da imagem do seu quizz">
-                    <input class="entrada" type="text" placeholder="Quantidade de perguntas do quizz">
-                    <input class="entrada" type="text" placeholder="Quantidade de níveis do quizz">
+                    <input class="entrada quizz-titulo" type="text" placeholder="Título do seu quizz">
+                    <input class="entrada quizz-imagem" type="text" placeholder="URL da imagem do seu quizz">
+                    <input class="entrada quizz-qtd-perguntas" type="text"
+                        placeholder="Quantidade de perguntas do quizz">
+                    <input class="entrada quizz-qtd-niveis" type="text" placeholder="Quantidade de níveis do quizz">
                 </article>
                 <button onclick="botaoProsseguirTela3(1)">Prosseguir pra criar perguntas</button>
             </section>
@@ -102,50 +106,6 @@
                 <div class="scroll-view"></div>
                 <h3>Crie suas perguntas</h3>
                 <div class="lista">
-                    <article>
-                        <div class="topo">
-                            <h4>Pergunta 1</h4>
-                            <ion-icon class="escondido" name="create-outline"></ion-icon>
-                        </div>
-                        <div class="pertguntas">
-                            <input class="entrada texto-pergunta" type="text" placeholder="Texto da pergunta">
-                            <input class="entrada cor-pergunta" type="text" placeholder="Cor de fundo da pergunta">
-                            <h4 class="topo">Resposta correta</h4>
-                            <input class="entrada resposta-certa" type="text" placeholder="Resposta correta">
-                            <input class="entrada imagem-certa" type="text" placeholder="URL da imagem">
-                            <h4 class="topo">Respostas incorretas</h4>
-                            <input class="entrada resposta-errada1" type="text" placeholder="Resposta incorreta 1">
-                            <input class="entrada imagem-errada1" type="text" placeholder="URL da imagem">
-                            <input class="entrada resposta-errada2" class="nova-resposta" type="text"
-                                placeholder="Resposta incorreta 2">
-                            <input class="entrada imagem-errada2" type="text" placeholder="URL da imagem">
-                            <input class="entrada resposta-errada3" class="nova-resposta" type="text"
-                                placeholder="Resposta incorreta 3">
-                            <input class="entrada imagem-errada3" type="text" placeholder="URL da imagem">
-                        </div>
-                    </article>
-                    <article>
-                        <div class="topo">
-                            <h4>Pergunta 2</h4>
-                            <ion-icon class="" name="create-outline"></ion-icon>
-                        </div>
-                        <div class="pertguntas escondido">
-                            <input class="texto-pergunta" type="text" placeholder="Texto da pergunta">
-                            <input class="cor-pergunta" type="text" placeholder="Cor de fundo da pergunta">
-                            <h4 class="topo">Resposta correta</h4>
-                            <input class="resposta-certa" type="text" placeholder="Resposta correta">
-                            <input class="imagem-certa" type="text" placeholder="URL da imagem">
-                            <h4 class="topo">Respostas incorretas</h4>
-                            <input class="resposta-errada1" type="text" placeholder="Resposta incorreta 1">
-                            <input class="imagem-errada1" type="text" placeholder="URL da imagem">
-                            <input class="resposta-errada2" class="nova-resposta" type="text"
-                                placeholder="Resposta incorreta 2">
-                            <input class="imagem-errada2" type="text" placeholder="URL da imagem">
-                            <input class="resposta-errada3" class="nova-resposta" type="text"
-                                placeholder="Resposta incorreta 3">
-                            <input class="imagem-errada3" type="text" placeholder="URL da imagem">
-                        </div>
-                    </article>
                 </div>
                 <button onclick="botaoProsseguirTela3(2)">Prosseguir pra criar níveis</button>
             </section>
@@ -155,49 +115,15 @@
                 <div class="scroll-view"></div>
                 <h3>Agora, decida os níveis!</h3>
                 <div class="lista">
-                    <article>
-                        <div class="topo">
-                            <h4>Nível 1</h4>
-                            <ion-icon class="escondido" name="create-outline"></ion-icon>
-                        </div>
-                        <div class="infos">
-                            <input class="entrada" type="text" placeholder="Texto da pergunta">
-                            <input class="entrada" type="text" placeholder="Cor de fundo da pergunta">
-                            <input class="entrada" type="text" placeholder="Resposta correta">
-                            <input class="descricao" type="text" placeholder="URL da imagem">
-                        </div>
-                    </article>
-                    <article>
-                        <div class="topo">
-                            <h4>Nível 2</h4>
-                            <ion-icon class="" name="create-outline"></ion-icon>
-                        </div>
-                        <div class="infos escondido">
-                            <input class="entrada" type="text" placeholder="Texto da pergunta">
-                            <input class="entrada" type="text" placeholder="Cor de fundo da pergunta">
-                            <input class="entrada" type="text" placeholder="Resposta correta">
-                            <input class="descricao" type="text" placeholder="URL da imagem">
-                        </div>
-                    </article>
                 </div>
-                <button onclick="botaoProsseguirTela3(3)">Prosseguir pra criar perguntas</button>
+                <button onclick="botaoProsseguirTela3(3)">Finalizar Quizz</button>
             </section>
 
             <!-- TELA 3.4 -->
-            <section class="tela3_4 escondido">
-                <div class="scroll-view"></div>
-                <h3>Seu quizz está pronto!</h3>
-                <div class="quizz size-fill">
-                    <img src="./app/images/Rectangle34.png">
-                    <div class="gradiente-escurecer"></div>
-                    <span>O quão Potterhead é você?</span>
-                </div>
-                <button onclick="botaoProsseguirTela3(4)">Acessar Quizz</button>
-                <h5>Voltar pra home</h5>
+            <section class="tela3_4">
             </section>
         </div>
     </main>
-
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./app/js/script.js"></script>
