@@ -155,10 +155,12 @@ function selecionarOpcao(opcaoSelecionada, ehRespostaCorreta) {
 }
 
 function validarQuizz() {
+    const pontuacao = quantidadeAcerto/quantidadePerguntas*100;
+
     document.querySelector(".tela2 .perguntas ul").innerHTML += `
         <li class="resultado-quizz">
             <div class="texto" style="background-color: red">
-                <h4>${niveis[0].title}</h4>
+                <h4>${pontuacao} de acerto: ${niveis[0].title}</h4>
             </div>
             <img src="${niveis[0].image}" alt="Imagem do nível">
             <h6>${niveis[0].text}</h6>
