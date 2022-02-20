@@ -306,7 +306,6 @@ function verificaRegras(etapa) {
     }
 }
 
-
 function botaoCriarQuizz() {
     trocaTela('.tela1', '.tela3');
 }
@@ -487,27 +486,6 @@ function botaoProsseguirTela3(etapa) {
 
 function apagarQuizzTela3() {
     quizzTela3 = {};
-}
-
-function botaoProsseguirTela3(etapa) {
-    let telaAbrir = null;
-    let telaFechar = null;
-
-    if (etapa === 1) {
-        telaAbrir = '.tela3_2';
-        telaFechar = '.tela3_1';
-    } else if (etapa === 2) {
-        telaAbrir = '.tela3_3';
-        telaFechar = '.tela3_2';
-    } else if (etapa === 3) {
-        telaAbrir = '.tela3_4';
-        telaFechar = '.tela3_3';
-    } else {
-        telaAbrir = '.tela3';
-        telaFechar = '.tela2';
-    }
-
-    trocaTela(telaFechar, telaAbrir);
 }
 
 function comparador() {
