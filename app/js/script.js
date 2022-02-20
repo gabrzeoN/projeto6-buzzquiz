@@ -27,7 +27,6 @@ let quizzTela3 = {};
 let errosTela3 = [];
 
 //Executando
-chamarUmQuizz("4369");
 quizzTela3 = { url_image: "https://www.getsview.com/wp-content/uploads/2020/08/Learn-Programing-For-Free-With-An-Android-Device.jpg", titulo: "Qual liguagem de programação foi feita para você?" };
 renderizarTela3(3);
 
@@ -510,7 +509,7 @@ function renderizarUmQuizz(response) {
     perguntas.forEach((pergunta) => {
         const cor = pergunta.color;
         const respostasOrdenadas = pergunta.answers;
-        const respostas = respostasOrdenadas.sort(comparador);
+        const respostas = respostasOrdenadas.sort(comparador);//tirar escondido
         document.querySelector(".tela2 .perguntas ul").innerHTML += `
             <li class="">
                 <div class="texto" style="background-color: ${cor}">
@@ -568,22 +567,61 @@ function selecionarOpcao(opcaoSelecionada, ehRespostaCorreta) {
             if (perguntasRespondidas >= quantidadePerguntas) {
                 validarQuizz();
                 document.querySelector(".tela2 .perguntas ul li:last-child").scrollIntoView(true);
+                document.querySelector(".tela2 .reiniciar-voltar").classList.remove("escondido");
             }
-        }, 200); // Trocar para 2s
+        }, 20); // Trocar para 2s
     }
 }
 
 function validarQuizz() {
-    const pontuacao = quantidadeAcerto / quantidadePerguntas * 100;
-
+    const pontuacao = Math.round(quantidadeAcerto / quantidadePerguntas * 100);
+    let nivelFinal = 0;
+    for(let i = 0; i < niveis.length; i++){
+        if(pontuacao >= niveis[i].minValue){
+            nivelFinal = niveis[i];
+        }
+    }
     document.querySelector(".tela2 .perguntas ul").innerHTML += `
         <li class="resultado-quizz">
             <div class="texto" style="background-color: red">
-                <h4>${pontuacao} de acerto: ${niveis[0].title}</h4>
+                <h4>${pontuacao}% de acerto: ${nivelFinal.title}</h4>
             </div>
-            <img src="${niveis[0].image}" alt="Imagem do nível">
-            <h6>${niveis[0].text}</h6>
+            <img src="${nivelFinal.image}" alt="Imagem do nível">
+            <h6>${nivelFinal.text}</h6>
         </li>
     `;
-    console.log("acertos finais:" + quantidadeAcerto);
 }
+
+function reiniciarVarGlobais(){
+    quantidadePerguntas = 0;
+    perguntasRespondidas = 0;
+    quantidadeAcerto = 0;
+    nivel = null;
+    // id = null;
+    titulo = null;
+    banner = null;
+    perguntas = null;
+    niveis = null;
+}
+
+function reiniciarInnerHtml(){
+    document.querySelector(".tela2 .banner h2").innerHTML = "";
+    document.querySelector(".tela2 .banner img").setAttribute('src', "");
+    document.querySelector(".tela2 .perguntas ul").innerHTML = "";
+}
+
+function reiniciarQuizz(){
+    document.querySelector(".tela2 .reiniciar-voltar").classList.add("escondido");
+    reiniciarVarGlobais();
+    reiniciarInnerHtml();
+    chamarUmQuizz(id);
+}
+
+function voltarParaHome(){
+    document.querySelector(".tela2 .reiniciar-voltar").classList.add("escondido");
+    reiniciarVarGlobais();
+    reiniciarInnerHtml();
+    trocaTela('.tela2', '.tela1');
+}
+
+chamarUmQuizz("4366");
