@@ -531,7 +531,7 @@ function renderizarUmQuizz(response) {
     perguntas.forEach((pergunta) => {
         const cor = pergunta.color;
         const respostasOrdenadas = pergunta.answers;
-        const respostas = respostasOrdenadas.sort(comparador);
+        const respostas = respostasOrdenadas.sort(comparador);//tirar escondido
         document.querySelector(".tela2 .perguntas ul").innerHTML += `
             <li class="">
                 <div class="texto" style="background-color: ${cor}">
@@ -589,8 +589,9 @@ function selecionarOpcao(opcaoSelecionada, ehRespostaCorreta) {
             if (perguntasRespondidas >= quantidadePerguntas) {
                 validarQuizz();
                 document.querySelector(".tela2 .perguntas ul li:last-child").scrollIntoView(true);
+                document.querySelector(".tela2 .reiniciar-voltar").classList.remove("escondido");
             }
-        }, 200); // Trocar para 2s
+        }, 20); // Trocar para 2s
     }
 }
 
@@ -611,6 +612,38 @@ function validarQuizz() {
             <h6>${nivelFinal.text}</h6>
         </li>
     `;
-    console.log("acertos finais:" + quantidadeAcerto);
 }
+
+function reiniciarVarGlobais(){
+    quantidadePerguntas = 0;
+    perguntasRespondidas = 0;
+    quantidadeAcerto = 0;
+    nivel = null;
+    // id = null;
+    titulo = null;
+    banner = null;
+    perguntas = null;
+    niveis = null;
+}
+
+function reiniciarInnerHtml(){
+    document.querySelector(".tela2 .banner h2").innerHTML = "";
+    document.querySelector(".tela2 .banner img").setAttribute('src', "");
+    document.querySelector(".tela2 .perguntas ul").innerHTML = "";
+}
+
+function reiniciarQuizz(){
+    document.querySelector(".tela2 .reiniciar-voltar").classList.add("escondido");
+    reiniciarVarGlobais();
+    reiniciarInnerHtml();
+    chamarUmQuizz(id);
+}
+
+function voltarParaHome(){
+    document.querySelector(".tela2 .reiniciar-voltar").classList.add("escondido");
+    reiniciarVarGlobais();
+    reiniciarInnerHtml();
+    trocaTela('.tela2', '.tela1');
+}
+
 chamarUmQuizz("4366");

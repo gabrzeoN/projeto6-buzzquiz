@@ -116,7 +116,7 @@
 }
 
 .tela2 ul .resultado-quizz{
-    margin-bottom:50px;
+    /* margin-bottom:50px; */
 }
 
 .tela2 ul .resultado-quizz img{
@@ -134,6 +134,44 @@
     
     color: #484848;
     margin-top: 9px;
+}
+
+.tela2 .reiniciar-voltar{
+    /* background-color: yellow; */
+    width: 340px;
+    height: 155px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 30px 0px 50px 0px;
+}
+
+.tela2 .reiniciar-voltar button:first-child{
+    background: #EC362D;
+    border-radius: 15px;
+    width: 220.32px;
+    height: 44px;
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: #FFF5F4;
+    border: 0px;
+}
+
+.tela2 .reiniciar-voltar button:nth-child(2){
+    font-size: 18px;
+    line-height: 21px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #818181;
+    border: 0px;
+    background-color: #fafafa;
+    margin-top: 20px;
 }
 
 /*Media query para desktop 
