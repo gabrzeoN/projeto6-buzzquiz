@@ -27,7 +27,6 @@ let quizzTela3 = {};
 let errosTela3 = [];
 
 //Executando
-chamarUmQuizz("4369");
 quizzTela3 = { url_image: "https://www.getsview.com/wp-content/uploads/2020/08/Learn-Programing-For-Free-With-An-Android-Device.jpg", titulo: "Qual liguagem de programação foi feita para você?" };
 renderizarTela3(3);
 
@@ -596,16 +595,22 @@ function selecionarOpcao(opcaoSelecionada, ehRespostaCorreta) {
 }
 
 function validarQuizz() {
-    const pontuacao = quantidadeAcerto / quantidadePerguntas * 100;
-
+    const pontuacao = Math.round(quantidadeAcerto / quantidadePerguntas * 100);
+    let nivelFinal = 0;
+    for(let i = 0; i < niveis.length; i++){
+        if(pontuacao >= niveis[i].minValue){
+            nivelFinal = niveis[i];
+        }
+    }
     document.querySelector(".tela2 .perguntas ul").innerHTML += `
         <li class="resultado-quizz">
             <div class="texto" style="background-color: red">
-                <h4>${pontuacao} de acerto: ${niveis[0].title}</h4>
+                <h4>${pontuacao}% de acerto: ${nivelFinal.title}</h4>
             </div>
-            <img src="${niveis[0].image}" alt="Imagem do nível">
-            <h6>${niveis[0].text}</h6>
+            <img src="${nivelFinal.image}" alt="Imagem do nível">
+            <h6>${nivelFinal.text}</h6>
         </li>
     `;
     console.log("acertos finais:" + quantidadeAcerto);
 }
+chamarUmQuizz("4366");
