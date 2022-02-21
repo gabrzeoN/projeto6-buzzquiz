@@ -649,7 +649,7 @@ function renderizarUmQuizz(response) {
                 corTextoResposta = "resposta-incorreta";
             }
             document.querySelector(".tela2 .perguntas ul li:last-child .opcoes").innerHTML += `
-                <div class="opcao" onclick="selecionarOpcao(this, ${resposta.isCorrectAnswer}) data-identifier="answer"">
+                <div class="opcao" onclick="selecionarOpcao(this, ${resposta.isCorrectAnswer})" data-identifier="answer">
                     <img src="${resposta.image}" alt="Opção de resposta">
                     <p class="${corTextoResposta}">${resposta.text}</p>
                 </div>
@@ -678,19 +678,21 @@ function selecionarOpcao(opcaoSelecionada, ehRespostaCorreta) {
         });
         opcaoSelecionada.classList.remove("opcao-nao-selecionada");
         setTimeout(() => {
-            const listaLi = [...document.querySelectorAll(".tela2 ul li")];
-            const proximoLi = listaLi.indexOf(caixaDaPergunta) + 1;
-            if (listaLi.length !== proximoLi) {
-                listaLi[proximoLi].scrollIntoView(true);
-                const scrolledY = window.scrollY;
-                window.scroll(0, scrolledY - 110);
-            }
             if (perguntasRespondidas >= quantidadePerguntas) {
                 validarQuizz();
-                document.querySelector(".tela2 .perguntas ul li:last-child").scrollIntoView(true);
                 document.querySelector(".tela2 .reiniciar-voltar").classList.remove("escondido");
+                document.querySelector(".tela2 .perguntas ul li:last-child").scrollIntoView({block: "center", behavior: "smooth"});
+            }else{
+                document.querySelector(`.tela2 .perguntas ul li:nth-child(${perguntasRespondidas + 1}) `).scrollIntoView({block: "center", behavior: "smooth"});
             }
-        }, 20);
+            // const listaLi = [...document.querySelectorAll(".tela2 ul li")];
+            // const proximoLi = listaLi.indexOf(caixaDaPergunta) + 1;
+            // if (listaLi.length !== proximoLi) {
+            //     listaLi[proximoLi].scrollIntoView(true);
+            //     const scrolledY = window.scrollY;
+            //     window.scroll(0, scrolledY - 110);
+            // }
+        }, 2000);
     }
 }
 
