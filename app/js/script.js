@@ -34,10 +34,8 @@ let errosTela3 = [];
 let tamanhoPerguntas = null;
 let tamanhoNiveis = null;
 
-//Executando
 buscarTodosQuizzes();
 
-//############ FUNÇÕES
 function buscarTodosQuizzes() {
     const promisse = axios.get(OBTER_QUIZZES);
     promisse.then(guardarQuizzes);
@@ -47,17 +45,14 @@ function buscarTodosQuizzes() {
 function buscarIdsGuardados() {
     const listaSerializada = localStorage.getItem("listaIdQuizzes");
     const lista = JSON.parse(listaSerializada);
-
     return lista;
 }
 
 function guardarQuizzes(response) {
-
     idsGuardados = null;
     idsGuardados = buscarIdsGuardados();
     meusQuizzes = [];
     todosQuizzes = [];
-
     if (idsGuardados === null) {
         todosQuizzes = response.data;
         renderizarTela1("SeusQuizzes");
@@ -81,7 +76,6 @@ function renderizarTela1(section) {
             if (elementoFechar.classList.contains("escondido")) {
                 elementoFechar.classList.remove("escondido");
             }
-
             const elementoAbrir = document.querySelector(".tela1 .seus-quizzes-preenchido");
             if (!elementoFechar.classList.contains("escondido")) {
                 elementoAbrir.classList.add("escondido");
@@ -91,12 +85,10 @@ function renderizarTela1(section) {
             if (!elementoFechar.classList.contains("escondido")) {
                 elementoFechar.classList.add("escondido");
             }
-
             const elementoAbrir = document.querySelector(".tela1 .seus-quizzes-preenchido");
             if (elementoFechar.classList.contains("escondido")) {
                 elementoAbrir.classList.remove("escondido");
             }
-
             const elemento = document.querySelector(".tela1 .seus-quizzes-preenchido .lista-quizzes");
             elemento.innerHTML = '';
             meusQuizzes.forEach((quizz) => {
@@ -125,7 +117,6 @@ function renderizarTela1(section) {
 }
 
 function abrirQuizz(tipoQuizz, id) {
-    // JOGAR DADOS NELA
     let quizz = null;
     tipo = tipoQuizz;
     if (tipoQuizz === "SeusQuizzes") {
@@ -133,18 +124,13 @@ function abrirQuizz(tipoQuizz, id) {
     } else {
         quizz = (todosQuizzes.filter((obj) => obj.id === id))[0];
     }
-
-    // LIMPAR TELA 2
     renderizarUmQuizz(quizz)
-
-    // TROCAR DE TELA
     trocaTela(".tela1", ".tela2");
 }
 
 function renderizarTela3(etapa) {
     if (etapa === 1) {
         const elementoLista = document.querySelector('.tela3_2').querySelector('.lista');
-
         for (let indice = 1; indice <= tamanhoPerguntas; indice++) {
             elementoLista.innerHTML += `
                 <article class='pergunta${indice}'>
@@ -170,7 +156,6 @@ function renderizarTela3(etapa) {
         }
     } else if (etapa === 2) {
         const elementoLista = document.querySelector('.tela3_3').querySelector('.lista');
-
         for (let indice = 1; indice <= tamanhoNiveis; indice++) {
             elementoLista.innerHTML += `
                 <article class='nivel${indice} '>
@@ -188,7 +173,6 @@ function renderizarTela3(etapa) {
         }
     } else if (etapa === 3) {
         const elemento = document.querySelector('.tela3_4');
-
         elemento.innerHTML = `  <div class="scroll-view"></div>
                                 <h3>Seu quizz está pronto!</h3>
                                 <div class="quizz size-fill">
@@ -314,7 +298,6 @@ function verificaRegras(etapa) {
                 break;
             }
             break;
-
         case 2:
             upperloop: for (let indicePergunta = 0; indicePergunta < quizzTela3.questions.length; indicePergunta++) {
                 if (!quizzTela3.questions[indicePergunta].title) {
@@ -357,7 +340,6 @@ function verificaRegras(etapa) {
                 }
             }
             break;
-
         case 3:
             for (let indiceNivel = 0; indiceNivel < quizzTela3.levels.length; indiceNivel++) {
                 if (!quizzTela3.levels[indiceNivel].title) {
@@ -398,9 +380,7 @@ function verificaRegras(etapa) {
                     }
                 }
             }
-
             break;
-
         default:
             return false;
             break;
@@ -435,24 +415,20 @@ function validaInputsTela3(etapa) {
             tamanhoPerguntas = (qtd_perguntas.value !== '' ? qtd_perguntas.value : null);
             tamanhoNiveis = (qtd_niveis.value !== '' ? qtd_niveis.value : null);
             break;
-
         case 2:
             const elementosPerguntas = [];
             for (let indicePergunta = 1; indicePergunta <= tamanhoPerguntas; indicePergunta++) {
                 const elementoPergunta = elementoTela3.querySelector(`.pergunta${indicePergunta}`);
-
                 elementosPerguntas.push({
                     title: elementoPergunta.querySelector(`.texto-pergunta`),
                     cor: elementoPergunta.querySelector(`.cor-pergunta`)
                 })
-
                 elementosPerguntas[indicePergunta - 1].respostas = [];
                 elementosPerguntas[indicePergunta - 1].respostas.push({
                     texto: elementoPergunta.querySelector(`.resposta-certa`),
                     imagem: elementoPergunta.querySelector(`.imagem-certa`),
                     correta: true
                 });
-
                 for (let indiceResposta = 1; indiceResposta <= 3; indiceResposta++) {
                     elementosPerguntas[indicePergunta - 1].respostas.push({
                         texto: elementoPergunta.querySelector(`.resposta-errada${indiceResposta}`),
@@ -463,19 +439,16 @@ function validaInputsTela3(etapa) {
             }
             quizzTela3.questions = [];
             for (let indicePergunta = 1; indicePergunta <= tamanhoPerguntas; indicePergunta++) {
-
                 quizzTela3.questions.push({
                     title: (elementosPerguntas[indicePergunta - 1].title.value !== '' ? elementosPerguntas[indicePergunta - 1].title.value : null),
                     color: (elementosPerguntas[indicePergunta - 1].cor.value !== '' ? elementosPerguntas[indicePergunta - 1].cor.value : null)
                 })
-
                 quizzTela3.questions[indicePergunta - 1].answers = [];
                 quizzTela3.questions[indicePergunta - 1].answers.push({
                     text: elementosPerguntas[indicePergunta - 1].respostas[0].texto.value !== '' ? elementosPerguntas[indicePergunta - 1].respostas[0].texto.value : null,
                     image: elementosPerguntas[indicePergunta - 1].respostas[0].imagem.value !== '' ? elementosPerguntas[indicePergunta - 1].respostas[0].imagem.value : null,
                     isCorrectAnswer: true
                 });
-
                 for (let indiceResposta = 1; indiceResposta <= 3; indiceResposta++) {
                     if (elementosPerguntas[indicePergunta - 1].respostas[indiceResposta].texto.value !== '') {
                         quizzTela3.questions[indicePergunta - 1].answers.push({
@@ -492,41 +465,33 @@ function validaInputsTela3(etapa) {
             const elementosNiveis = [];
             for (let indiceNivel = 1; indiceNivel <= tamanhoNiveis; indiceNivel++) {
                 const elementoNivel = elementoTela3.querySelector(`.nivel${indiceNivel}`);
-
                 elementosNiveis.push({
                     titulo: elementoNivel.querySelector(`.titulo`),
                     porcentagem: elementoNivel.querySelector(`.porcentagem`),
                     imagem: elementoNivel.querySelector(`.url-imagem`),
                     descricao: elementoNivel.querySelector(`.descricao`)
                 })
-
             }
             quizzTela3.levels = [];
             for (let indiceNivel = 0; indiceNivel < tamanhoNiveis; indiceNivel++) {
-
                 quizzTela3.levels.push({
                     title: (elementosNiveis[indiceNivel].titulo.value !== '' ? elementosNiveis[indiceNivel].titulo.value : null),
                     minValue: (elementosNiveis[indiceNivel].porcentagem.value !== '' ? elementosNiveis[indiceNivel].porcentagem.value : null),
                     image: (elementosNiveis[indiceNivel].imagem.value !== '' ? elementosNiveis[indiceNivel].imagem.value : null),
                     text: (elementosNiveis[indiceNivel].descricao.value !== '' ? elementosNiveis[indiceNivel].descricao.value : null)
                 })
-
             }
             break;
-
         case 4:
             return true;
             break;
-
         case 5:
             return true;
             break;
-
         default:
             return false;
             break;
     }
-
     if (verificaRegras(etapa)) {
         return true;
     } else {
@@ -631,7 +596,7 @@ function renderizarUmQuizz(response) {
     perguntas.forEach((pergunta) => {
         const cor = pergunta.color;
         const respostasOrdenadas = pergunta.answers;
-        const respostas = respostasOrdenadas.sort(comparador);//tirar escondido
+        const respostas = respostasOrdenadas.sort(comparador);
         document.querySelector(".tela2 .perguntas ul").innerHTML += `
             <li class="" data-identifier="question">
                 <div class="texto" style="background-color: ${cor}">
@@ -681,17 +646,10 @@ function selecionarOpcao(opcaoSelecionada, ehRespostaCorreta) {
             if (perguntasRespondidas >= quantidadePerguntas) {
                 validarQuizz();
                 document.querySelector(".tela2 .reiniciar-voltar").classList.remove("escondido");
-                document.querySelector(".tela2 .perguntas ul li:last-child").scrollIntoView({block: "center", behavior: "smooth"});
-            }else{
-                document.querySelector(`.tela2 .perguntas ul li:nth-child(${perguntasRespondidas + 1}) `).scrollIntoView({block: "center", behavior: "smooth"});
+                document.querySelector(".tela2 .perguntas ul li:last-child").scrollIntoView({ block: "center", behavior: "smooth" });
+            } else {
+                document.querySelector(`.tela2 .perguntas ul li:nth-child(${perguntasRespondidas + 1}) `).scrollIntoView({ block: "center", behavior: "smooth" });
             }
-            // const listaLi = [...document.querySelectorAll(".tela2 ul li")];
-            // const proximoLi = listaLi.indexOf(caixaDaPergunta) + 1;
-            // if (listaLi.length !== proximoLi) {
-            //     listaLi[proximoLi].scrollIntoView(true);
-            //     const scrolledY = window.scrollY;
-            //     window.scroll(0, scrolledY - 110);
-            // }
         }, 2000);
     }
 }

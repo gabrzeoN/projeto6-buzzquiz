@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -15,30 +14,26 @@
     <link rel="stylesheet" href="app/css/tela3.css">
     <title>BuzzQuizz</title>
 </head>
-
 <body>
     <header>
-        <!-- class="escondido" -->
         <h1>BuzzQuizz</h1>
     </header>
     <main>
-        <!-- TELA 1 -->
         <div class="tela1 ">
             <div class="scroll-view"></div>
             <section class="seus-quizzes-vazio">
                 <span>Você não criou nenhum quizz ainda :(</span>
                 <button onclick="botaoCriarQuizz()" data-identifier="create-quizz">Criar Quizz</button>
             </section>
-
             <section class="seus-quizzes-preenchido escondido">
                 <div class="topo">
                     <h3>Seus Quizzes</h3>
-                    <ion-icon name="add-circle-sharp" data-identifier="create-quizz" onclick="botaoCriarQuizz()"></ion-icon>
+                    <ion-icon name="add-circle-sharp" data-identifier="create-quizz" onclick="botaoCriarQuizz()">
+                    </ion-icon>
                 </div>
                 <div class="lista-quizzes" data-identifier="user-quizzes">
                 </div>
             </section>
-
             <section class="todos-quizzes">
                 <div class="topo">
                     <h3>Todos os Quizzes</h3>
@@ -47,8 +42,6 @@
                 </div>
             </section>
         </div>
-
-        <!-- TELA 2 -->
         <div class="tela2 escondido">
             <div class="scroll-view"></div>
             <section class="banner">
@@ -64,11 +57,7 @@
                 <button onclick="voltarParaHome()">Voltar para home</button>
             </section>
         </div>
-
-        <!-- TELA 3 -->
         <div class="tela3 escondido">
-
-            <!-- TELA 3.1 -->
             <section class="tela3_1 ">
                 <div class="scroll-view"></div>
                 <h3>Comece pelo começo</h3>
@@ -81,8 +70,6 @@
                 </article>
                 <button onclick="botaoProsseguirTela3(1)">Prosseguir pra criar perguntas</button>
             </section>
-
-            <!-- TELA 3.2 -->
             <section class="tela3_2 escondido">
                 <div class="scroll-view"></div>
                 <h3>Crie suas perguntas</h3>
@@ -90,8 +77,6 @@
                 </div>
                 <button onclick="botaoProsseguirTela3(2)">Prosseguir pra criar níveis</button>
             </section>
-
-            <!-- TELA 3.3 -->
             <section class="tela3_3 escondido">
                 <div class="scroll-view"></div>
                 <h3>Agora, decida os níveis!</h3>
@@ -99,8 +84,6 @@
                 </div>
                 <button onclick="botaoProsseguirTela3(3)">Finalizar Quizz</button>
             </section>
-
-            <!-- TELA 3.4 -->
             <section class="tela3_4 escondido">
             </section>
         </div>
@@ -109,5 +92,4 @@
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
     <script src="./app/js/script.js"></script>
 </body>
-
 </html>

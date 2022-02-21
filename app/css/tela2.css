@@ -1,11 +1,9 @@
-/* TELA 2 */
 .tela2 {
     width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* margin: 69px auto 0 auto; */
     margin: 0px auto;
 }
 
@@ -35,39 +33,17 @@
     text-align: center;
 }
 
-/* .tela2 .perguntas ul li .texto{
-    background-color: #434CA0;
-    color: #FFFFFF;
-    height: 89px;
-    font-weight: bold;
-    font-size: 19px;
-    line-height: 22px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    padding: 16px;
-} */
-
 .tela2 .perguntas .opcoes p{
     margin-top: 2px;
     font-weight: bold;
     font-size: 13px;
     line-height: 15px;
 }
-/**/
 
 .tela2 .perguntas .opcoes img{
     width: 163px;
     height: 113px;
 }
-
-/* .tela2 .perguntas .opcoes p{
-    margin-top: 2px;
-    font-weight: bold;
-    font-size: 13px;
-    line-height: 15px;
-    color: #000000;
-} */
 
 .tela2 .banner{
     width: 100%;
@@ -109,10 +85,6 @@
 
 .opcao-nao-selecionada{
     opacity: 0.3;
-}
-
-.tela2 ul .resultado-quizz{
-    /* margin-bottom:50px; */
 }
 
 .tela2 ul .resultado-quizz img{
@@ -168,13 +140,6 @@
     background-color: #fafafa;
     margin-top: 20px;
 }
-
-/*Media query para desktop 
-.tela2 .banner .img{
-    height: 227px;
-    width: 1440px;
-}
-*/
 
 @media (min-width: 1100px){
     .tela2 .banner{
