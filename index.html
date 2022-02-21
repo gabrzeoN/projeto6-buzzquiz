@@ -23,19 +23,19 @@
     </header>
     <main>
         <!-- TELA 1 -->
-        <div class="tela1 escondido">
+        <div class="tela1">
             <div class="scroll-view"></div>
             <section class="seus-quizzes-vazio">
                 <span>Você não criou nenhum quizz ainda :(</span>
-                <button onclick="botaoCriarQuizz()">Criar Quizz</button>
+                <button onclick="botaoCriarQuizz()" data-identifier="create-quizz">Criar Quizz</button>
             </section>
 
             <section class="seus-quizzes-preenchido escondido">
                 <div class="topo">
                     <h3>Seus Quizzes</h3>
-                    <ion-icon name="add-circle-sharp" onclick="botaoCriarQuizz()"></ion-icon>
+                    <ion-icon name="add-circle-sharp" data-identifier="create-quizz" onclick="botaoCriarQuizz()"></ion-icon>
                 </div>
-                <div class="lista-quizzes">
+                <div class="lista-quizzes" data-identifier="user-quizzes">
                 </div>
             </section>
 
@@ -43,13 +43,13 @@
                 <div class="topo">
                     <h3>Todos os Quizzes</h3>
                 </div>
-                <div class="lista-quizzes">
+                <div class="lista-quizzes" data-identifier="general-quizzes">
                 </div>
             </section>
         </div>
 
         <!-- TELA 2 -->
-        <div class="tela2 ">
+        <div class="tela2 escondido">
             <div class="scroll-view"></div>
             <section class="banner">
                 <img src="" alt="Banner do quizz"> <!-- app/images/banner2.png -->

@@ -129,6 +129,7 @@
     align-items: center;
     color: #484848;
     margin-top: 9px;
+    overflow: hidden;
 }
 
 .tela2 .reiniciar-voltar{
@@ -175,7 +176,7 @@
 }
 */
 
-@media (min-width: 1440px){
+@media (min-width: 1100px){
     .tela2 .banner{
         height: 227px;
     }
@@ -225,5 +226,6 @@
         margin-left: 21px;
         font-size: 19px;
         line-height: 25px;
+        overflow: hidden;
     }
 }
