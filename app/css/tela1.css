@@ -131,3 +131,31 @@
     border-radius: 10px;
     background-image: var(--gradiente-black);
 }
+
+@media (min-width: 1100px){
+    .tela1 {
+        width: 1100px;
+    }
+
+    .tela1 .seus-quizzes-vazio{
+        margin: 77px 0px;
+    }
+
+    .tela1 .seus-quizzes-preenchido{
+        margin: 77px 0px;
+    }
+
+    .tela1 .topo {
+        width: 180px;
+    }
+
+    .tela1 .seus-quizzes-preenchido .lista-quizzes{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .tela1 .todos-quizzes .lista-quizzes{
+        flex-direction: row;
+        justify-content: space-between;
+    }
+}
