@@ -8,6 +8,7 @@
     margin-bottom: 60px;
     margin: 0 auto;
 }
+
 .tela3 section {
     width: 100%;
     display: flex;
@@ -15,6 +16,7 @@
     align-items: center;
     justify-content: flex-start;
 }
+
 .tela3 h3 {
     font-size: 20px;
     font-weight: 700;
@@ -23,6 +25,7 @@
     align-items: center;
     text-align: center;
 }
+
 .tela3 .lista {
     width: 100%;
 }
@@ -40,6 +43,7 @@
     box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.05);
     scroll-margin-top: 79px;
 }
+
 .tela3 article .topo {
     width: 100%;
     height: 40px;
@@ -48,13 +52,16 @@
     align-items: center;
     justify-content: space-between;
 }
+
 .tela3 h4 {
     font-size: 20px;
     font-weight: 700;
 }
+
 .tela3 ion-icon {
     font-size: 25px;
 }
+
 .tela3 article .perguntas {
     width: 100%;
     display: flex;
@@ -62,6 +69,7 @@
     align-items: center;
     justify-content: space-between;
 }
+
 .tela3 input {
     width: 100%;
     background: var(--white-color);
@@ -72,28 +80,35 @@
     font-size: 19px;
     padding-left: 15px;
 }
+
 .tela3 input .nova-resposta {
     margin-top: 30px;
 }
+
 .tela3 input::placeholder {
     opacity: 1;
     color: var(--gray-color);
     font-style: italic;
 }
+
 .tela3 input:-ms-input-placeholder {
     color: var(--gray-color);
     font-style: italic;
 }
+
 .tela3 input::-ms-input-placeholder {
     color: var(--gray-color);
     font-style: italic;
 }
+
 .tela3 .entrada {
     height: 46px;
 }
+
 .tela3 .descricao {
     height: 177px;
 }
+
 .tela3 h5 {
     height: 50px;
     display: flex;
@@ -103,6 +118,7 @@
     font-weight: 400;
     color: var(--gray-color);
 }
+
 .tela3 .quizz {
     position: relative;
     width: 340px;
@@ -110,11 +126,13 @@
     margin-bottom: 15px;
     border-radius: 10px;
 }
+
 .tela3 .quizz img {
     height: 100%;
     width: 100%;
     border-radius: 10px;
 }
+
 .tela3 .quizz span {
     height: 54px;
     width: 100%;
@@ -151,5 +169,67 @@
     color: var(--background-color);
     border: none;
     border-radius: 15px;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
+}
+
+@media (min-width: 1100px){
+    .tela3 {
+        width: 600px;
+    }
+
+    .tela3 section {
+        margin-top: 55px;
+    }
+
+    .tela3 h3 {
+        font-size: 23px;
+        line-height: 27px;
+    }
+
+    .tela3 article {
+        margin-top: 30px;
+    }
+
+    .tela3 button {
+        font-size: 21px;
+        line-height: 25px;
+    }
+
+    .tela3 .tela3_1 button {
+        width: 368px;
+        margin-top: 30px;
+        margin-bottom: 50px;
+    }
+
+    .tela3 .tela3_2 button {
+        width: 354px;
+        margin-top: 80px;
+        margin-bottom: 120px;
+    }
+
+    .tela3 .tela3_3 button {
+        width: 324px;
+        margin-top: 80px;
+        margin-bottom: 120px;
+    }
+
+    .tela3 .tela3_4 .quizz {
+        width: 500px;
+        height: 266px;
+    }
+
+    .tela3 .tela3_4 span {
+        font-size: 23px;
+        line-height: 27px;
+    }
+
+    .tela3 .tela3_4 button {
+        width: 220px;
+        margin-top: 45px;
+        margin-bottom: 30px;
+    }
+
+    .tela3 .tela3_4 h5 {
+        margin-bottom: 80px;
+    }
 }
