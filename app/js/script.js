@@ -586,8 +586,10 @@ function validarQuizz() {
             <div class="texto" style="background-color: red">
                 <h4>${pontuacao}% de acerto: ${nivelFinal.title}</h4>
             </div>
-            <img src="${nivelFinal.image}" alt="Imagem do nível">
-            <h6>${nivelFinal.text}</h6>
+            <div>
+                <img src="${nivelFinal.image}" alt="Imagem do nível">
+                <h6>${nivelFinal.text}</h6>
+            </div>   
         </li>
     `;
 }
