@@ -633,7 +633,7 @@ function renderizarUmQuizz(response) {
         const respostasOrdenadas = pergunta.answers;
         const respostas = respostasOrdenadas.sort(comparador);//tirar escondido
         document.querySelector(".tela2 .perguntas ul").innerHTML += `
-            <li class="">
+            <li class="" data-identifier="question">
                 <div class="texto" style="background-color: ${cor}">
                     <h4>${pergunta.title}</h4>
                 </div>
@@ -649,7 +649,7 @@ function renderizarUmQuizz(response) {
                 corTextoResposta = "resposta-incorreta";
             }
             document.querySelector(".tela2 .perguntas ul li:last-child .opcoes").innerHTML += `
-                <div class="opcao" onclick="selecionarOpcao(this, ${resposta.isCorrectAnswer})">
+                <div class="opcao" onclick="selecionarOpcao(this, ${resposta.isCorrectAnswer}) data-identifier="answer"">
                     <img src="${resposta.image}" alt="Opção de resposta">
                     <p class="${corTextoResposta}">${resposta.text}</p>
                 </div>
@@ -703,7 +703,7 @@ function validarQuizz() {
         }
     }
     document.querySelector(".tela2 .perguntas ul").innerHTML += `
-        <li class="resultado-quizz">
+        <li class="resultado-quizz" data-identifier="quizz-result">
             <div class="texto" style="background-color: red">
                 <h4>${pontuacao}% de acerto: ${nivelFinal.title}</h4>
             </div>
