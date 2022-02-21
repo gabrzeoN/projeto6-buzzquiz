@@ -84,6 +84,7 @@
 
 .tela1 .quizz {
     position: relative;
+    height: 181px;
     width: 340px;
     margin-bottom: 15px;
     border-radius: 10px;
@@ -104,7 +105,7 @@
 }
 
 .tela1 .quizz span {
-    height: 54px;
+    height: 60px;
     width: 100%;
     position: absolute;
     display: flex;
@@ -118,6 +119,7 @@
     color: var(--white-color);
     z-index: 2;
     border-radius: 10px;
+    overflow: hidden;
 }
 
 .tela1 .quizz .gradiente-escurecer {
